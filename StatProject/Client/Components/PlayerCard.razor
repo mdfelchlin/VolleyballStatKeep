@@ -1,0 +1,57 @@
+﻿
+<div class="card" style="min-width:400px; max-width:initial">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-2" style="text-align:center">#@JerseyNumber</div>
+            <div class="col-md-8" style="text-align:center">@Name</div>
+            <div class="col-md-2" style="text-align:center">@Position</div>
+        </div>
+    </div>
+    <div class="card-body" style="background-color:silver">
+        <div class="row" style="flex-wrap:nowrap">
+            <div class="col-3" style=" min-width: fit-content; align-self: center;">
+                <span>Attack</span>
+            </div>
+            <CardButton Text="Attempt"></CardButton>
+            <CardButton Text="Error" BackgroundColor="darkred"></CardButton>
+            <CardButton Text="Kill" BackgroundColor="forestgreen"></CardButton>
+        </div>
+        <div class="row" style="flex-wrap:nowrap">
+            <div class="col-3" style=" min-width: fit-content; align-self: center;">
+                <span>Set</span>
+            </div>
+            <CardButton Text="Attempt"></CardButton>
+            <CardButton Text="Error" BackgroundColor="darkred"></CardButton>
+            <CardButton Text="Assist" BackgroundColor="forestgreen"></CardButton>
+        </div>
+        <div class="row" style="flex-wrap:nowrap">
+            <div class="col-3" style=" min-width: fit-content; align-self: center;">
+                <span>Defense</span>
+            </div>
+            <CardButton Text="0" BackgroundColor="darkred"></CardButton>
+            <CardButton Text="1"></CardButton>
+            <CardButton Text="2"></CardButton>
+            <CardButton Text="3" BackgroundColor="forestgreen"></CardButton>
+        </div>
+        <div class="row" style="flex-wrap:nowrap">
+            <div class="col-3" style=" min-width: fit-content; align-self: center;">
+                <span>Serve</span>
+            </div>
+            <CardButton Text="Attempt"></CardButton>
+            <CardButton Text="Error" BackgroundColor="darkred"></CardButton>
+            <CardButton Text="Ace" BackgroundColor="forestgreen"></CardButton>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int JerseyNumber { get; set; } = 00;
+
+    [Parameter]
+    public string Name { get; set; } = "John Doe";
+
+    [Parameter]
+    public string Position { get; set; } = "OH";
+
+}

@@ -1,0 +1,17 @@
+﻿
+    <button type="button" 
+            class="btn btn-secondary"
+            style="margin:4px; background-color:@BackgroundColor">
+                    @Text
+    </button>
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+
+    [Parameter]
+    public Task OnClick { get; set; }
+
+    [Parameter]
+    public string BackgroundColor { get; set; }
+}

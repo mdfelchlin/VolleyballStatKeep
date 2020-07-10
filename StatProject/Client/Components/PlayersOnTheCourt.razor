@@ -1,0 +1,40 @@
+﻿<div class="container-fluid" style="min-width: fit-content">
+    <div class="row" style="margin-bottom:16px">
+        @*Left front*@
+        <div class="col-4">
+            <PlayerCard />
+        </div>
+
+        @*Center front*@
+        <div class="col-4">
+            <PlayerCard />
+        </div>
+
+        @*Front right*@
+        <div class="col-4">
+            <PlayerCard />
+        </div>
+    </div>
+
+    <div class="row">
+        @*Back left*@
+        <div class="col-4">
+            <PlayerCard />
+        </div>
+
+        @*Center back*@
+        <div class="col-4">
+            <PlayerCard />
+        </div>
+
+        @*Back right*@
+        <div class="col-4">
+            <PlayerCard />
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public List<Player> TeamPlayers { get; set; } = new List<Player>();
+}
