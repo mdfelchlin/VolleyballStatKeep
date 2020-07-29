@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using StatProject.Client.View_Models;
 
 namespace StatProject.Server
 {
@@ -25,6 +26,7 @@ namespace StatProject.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSingleton< MyTeamViewModel>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,7 @@
 ﻿
     <button type="button" 
             class="btn btn-secondary"
-            style="margin:4px; background-color:@BackgroundColor">
+            style="margin:4px; background-color:@BackgroundColor; width:@(Width)px">
                     @Text
     </button>
 
@@ -14,4 +14,7 @@
 
     [Parameter]
     public string BackgroundColor { get; set; }
+
+    [Parameter]
+    public int Width { get; set; }
 }

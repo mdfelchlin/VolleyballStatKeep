@@ -1,0 +1,83 @@
+﻿@page "/my-team"
+
+@inject View_Models.MyTeamViewModel ViewModel
+
+<h1>Team A</h1>
+
+<div class="row" style="flex-direction: row-reverse; margin-bottom: 16px; margin-right: 16px">
+
+    <BSButton Class="btn btn-primary"
+              Color="Color.Primary" 
+              @onclick="@(() => AddPlayerModal.Show())">Add Player</BSButton>
+</div>
+
+<BSModal @ref="AddPlayerModal" IsCentered="true">
+    <BSModalHeader OnClick="@(() => AddPlayerModal.Hide())">Add Player</BSModalHeader>
+    <BSModalBody>
+        <form>
+            <div class="row" style="margin:8px">
+                <div class="col-4">
+                    <label for="name">Name</label>
+                </div>
+                <div class="col-8">
+                    <input @bind-value="@ViewModel.TempPlayer.Name" placeholder="ie. John" id="name" />
+                </div>
+            </div>
+
+            <div class="row" style="margin:8px">
+                <div class="col-4 container-fluid">
+                    <label for="jerseyNumber">Jersey Number</label>
+                </div>
+                <div class="col-8">
+                    <input @bind-value="@ViewModel.TempPlayer.JerseyNumber" type="number" placeholder="ie. 12" id="jerseyNumber" />
+                </div>
+            </div>
+
+            <div class="row" style="margin:8px">
+                <div class="col-4">
+                    <label for="position">Position</label>
+                </div>
+                <div class="col-8">
+                    <input @bind-value="@ViewModel.TempPlayer.Position" placeholder="ie. OH" id="position" />
+                </div>
+            </div>
+        </form>
+    </BSModalBody>
+    <BSModalFooter>
+        <BSButton Color="Color.Secondary" @onclick="@(() => AddPlayerModal.Hide())">Cancel</BSButton>
+        <BSButton Color="Color.Primary" @onclick="@AddPlayer">Add Player</BSButton>
+    </BSModalFooter>
+</BSModal>
+
+@*Table holding all of the players*@
+<div class="container-fluid" style="padding:0px">
+    <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead style="background-color:darkgray">
+            <tr>
+                <th>Jersey</th>
+                <th>Name</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Player player in ViewModel.TeamPlayers)
+            {
+                <tr style="background-color: ghostwhite">
+                    <td>@player.JerseyNumber</td>
+                    <td>@player.Name</td>
+                    <td>@player.Position</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    BSModal AddPlayerModal { get; set; }
+
+    private void AddPlayer()
+    {
+        ViewModel.AddPlayer();
+        AddPlayerModal.Hide();
+    }
+}
