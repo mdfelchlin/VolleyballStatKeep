@@ -1,10 +1,10 @@
 ﻿
-<div class="card" style="min-width:400px; max-width:initial; background-color:whitesmoke">
+<div class="card" style="min-width:400px; margin-top:8px; max-width:initial; background-color:whitesmoke">
     <div class="card-header">
         <div class="row">
-            <div class="col-md-2" style="text-align:center">#@JerseyNumber</div>
-            <div class="col-md-8" style="text-align:center">@Name</div>
-            <div class="col-md-2" style="text-align:center">@Position</div>
+            <div class="col-md-2" style="text-align:center">#@Player.JerseyNumber</div>
+            <div class="col-md-8" style="text-align:center">@Player.Name</div>
+            <div class="col-md-2" style="text-align:center">@Player.Position</div>
         </div>
     </div>
     <div class="card-body" style="background-color:silver">
@@ -12,46 +12,73 @@
             <div class="col-3" style=" min-width: fit-content; align-self: center;">
                 <span>Attack</span>
             </div>
-            <CardButton Text="Attempt" Width="96"></CardButton>
-            <CardButton Text="Error" Width="64" BackgroundColor="darkred"></CardButton>
-            <CardButton Text="Kill" Width="72" BackgroundColor="forestgreen"></CardButton>
+            <CardButton Text="Attempt" 
+                        Width="96" 
+                        OnClick="@(() => Player.Stats.AttackAttempt++)"/>
+            <CardButton Text="Error" Width="64"
+                        BackgroundColor="darkred"
+                        OnClick="@(() => Player.Stats.AttackError++)" />
+            <CardButton Text="Kill" 
+                        Width="72" 
+                        BackgroundColor="forestgreen"
+                        OnClick="@(() => Player.Stats.AttackKill++)" />
         </div>
         <div class="row" style="flex-wrap:nowrap">
             <div class="col-3" style=" min-width: fit-content; align-self: center;">
                 <span>Set</span>
             </div>
-            <CardButton Text="Attempt" Width="96"></CardButton>
-            <CardButton Text="Error" Width="64" BackgroundColor="darkred"></CardButton>
-            <CardButton Text="Assist" Width="72" BackgroundColor="forestgreen"></CardButton>
+            <CardButton Text="Attempt" 
+                        Width="96"
+                        OnClick="@(() => Player.Stats.SetAttempt++)"/>
+            <CardButton Text="Error" 
+                        Width="64" 
+                        BackgroundColor="darkred"
+                        OnClick="@(() => Player.Stats.SetError++)"/>
+            <CardButton Text="Assist" 
+                        Width="72" 
+                        BackgroundColor="forestgreen"
+                        OnClick="@(() => Player.Stats.SetAssist++)"/>
         </div>
         <div class="row" style="flex-wrap:nowrap">
             <div class="col-3" style=" min-width: fit-content; align-self: center;">
                 <span>Defense</span>
             </div>
-            <CardButton Text="0" Width="56" BackgroundColor="darkred"></CardButton>
-            <CardButton Text="1" Width="56"></CardButton>
-            <CardButton Text="2" Width="56"></CardButton>
-            <CardButton Text="3" Width="56" BackgroundColor="forestgreen"></CardButton>
+            <CardButton Text="0" 
+                        Width="56" 
+                        BackgroundColor="darkred"
+                        OnClick="@(() => Player.Stats.Defense0++)" />
+            <CardButton Text="1" 
+                        Width="56"
+                        OnClick="@(() => Player.Stats.Defense1++)" />
+            <CardButton Text="2" 
+                        Width="56"
+                        OnClick="@(() => Player.Stats.Defense2++)" />
+            <CardButton Text="3" 
+                        Width="56" 
+                        BackgroundColor="forestgreen"
+                        OnClick="@(() => Player.Stats.Defense3++)" />
         </div>
         <div class="row" style="flex-wrap:nowrap">
             <div class="col-3" style=" min-width: fit-content; align-self: center;">
                 <span>Serve</span>
             </div>
-            <CardButton Text="Attempt" Width="96"></CardButton>
-            <CardButton Text="Error" Width="64" BackgroundColor="darkred"></CardButton>
-            <CardButton Text="Ace" Width="72" BackgroundColor="forestgreen"></CardButton>
+            <CardButton Text="Attempt" 
+                        Width="96"
+                        OnClick="@(() => Player.Stats.ServeAttempt++)" />
+            <CardButton Text="Error" 
+                        Width="64" 
+                        BackgroundColor="darkred"
+                        OnClick="@(() => Player.Stats.ServeError++)" />
+            <CardButton Text="Ace" 
+                        Width="72" 
+                        BackgroundColor="forestgreen"
+                        OnClick="@(() => Player.Stats.ServeAce++)" />
         </div>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public int JerseyNumber { get; set; } = 00;
-
-    [Parameter]
-    public string Name { get; set; } = "John Doe";
-
-    [Parameter]
-    public string Position { get; set; } = "OH";
+    public Player Player { get; set; }
 
 }

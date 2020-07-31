@@ -8,7 +8,7 @@ namespace StatProject.Client.View_Models
 {
     public class MyTeamViewModel
     {
-        public List<Player> TeamPlayers = new List<Player>();
+        public List<Player> TeamPlayers { get; } = new List<Player>();
 
         public Player TempPlayer = new Player();
         public void AddPlayer()

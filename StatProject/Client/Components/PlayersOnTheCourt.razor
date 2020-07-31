@@ -1,40 +1,19 @@
-﻿<div class="container-fluid" style="min-width: fit-content">
-    <div class="row" style="margin-bottom:16px">
-        @*Left front*@
-        <div class="col-4">
-            <PlayerCard />
-        </div>
+﻿@inject MyTeamViewModel MyTeamViewModel
 
-        @*Center front*@
-        <div class="col-4">
-            <PlayerCard />
-        </div>
-
-        @*Front right*@
-        <div class="col-4">
-            <PlayerCard />
-        </div>
-    </div>
-
+<div class="container-fluid" style="min-width: fit-content">
     <div class="row">
-        @*Back left*@
-        <div class="col-4">
-            <PlayerCard />
-        </div>
-
-        @*Center back*@
-        <div class="col-4">
-            <PlayerCard />
-        </div>
-
-        @*Back right*@
-        <div class="col-4">
-            <PlayerCard />
-        </div>
+        @foreach (Player p in ActivePlayers)
+        {
+            <div class="col-4">
+                <PlayerCard Player="p" />
+            </div>
+        }
     </div>
 </div>
 
 @code {
-    [Parameter]
-    public List<Player> TeamPlayers { get; set; } = new List<Player>();
+    //TODO: Get these players from the database
+    private List<Player> ActivePlayers => MyTeamViewModel.TeamPlayers;
+
+    public List<Player> BenchPlayers { get; set; }
 }

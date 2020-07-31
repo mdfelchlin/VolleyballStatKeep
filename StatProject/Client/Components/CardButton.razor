@@ -1,7 +1,8 @@
 ﻿
     <button type="button" 
             class="btn btn-secondary"
-            style="margin:4px; background-color:@BackgroundColor; width:@(Width)px">
+            style="margin:4px; background-color:@BackgroundColor; width:@(Width)px"
+            @onclick="OnClick.Invoke">
                     @Text
     </button>
 
@@ -10,7 +11,7 @@
     public string Text { get; set; }
 
     [Parameter]
-    public Task OnClick { get; set; }
+    public Action OnClick { get; set; }
 
     [Parameter]
     public string BackgroundColor { get; set; }
